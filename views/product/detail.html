@@ -1,0 +1,25 @@
+{{define "content"}}
+<div class="product-detail-page">
+  <div class="product-detail">
+    <div class="product-detail-image">
+      <img src="{{.Product.Image}}" alt="{{.Product.Name}}" />
+    </div>
+
+    <div class="product-detail-info">
+      <h1>{{.Product.Name}}</h1>
+      <p class="price">Rp {{.Product.Price}}</p>
+
+      <p class="description">
+        Produk berkualitas dengan desain modern dan nyaman digunakan.
+      </p>
+
+      <div class="actions">
+        <a href="/add-to-cart?id={{.Product.ID}}" class="btn btn-dark">
+          Add to Cart
+        </a>
+        <a href="/catalog" class="btn btn-outline-dark">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

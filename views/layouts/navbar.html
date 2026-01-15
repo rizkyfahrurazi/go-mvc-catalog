@@ -1,0 +1,20 @@
+{{define "navbar"}}
+<nav class="navbar fixed-top shadow-sm main-navbar">
+  <div class="container-fluid navbar-wrapper">
+    <!-- BRAND TENGAH -->
+    <div class="navbar-center">J I A N A K A</div>
+
+    <!-- MENU KANAN -->
+    <div class="navbar-right">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/catalog">Catalog</a>
+
+      {{if .IsLoggedIn}}
+      <a class="nav-link" href="/logout">Logout</a>
+      {{else}}
+      <a class="nav-link" href="/login">Login/Register</a>
+      {{end}}
+    </div>
+  </div>
+</nav>
+{{end}}

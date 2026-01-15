@@ -1,0 +1,48 @@
+{{define "content"}}
+<section class="cart-page">
+  <div class="cart-wrapper">
+    <h1>Your Cart</h1>
+
+    {{if gt (len .Cart) 0}}
+    <div class="cart-card">
+      {{range .Cart}}
+      <div class="cart-item">
+        <img src="{{.Product.Image}}" alt="{{.Product.Name}}" />
+
+        <!-- LEFT -->
+        <div class="cart-info">
+          <h3>{{.Product.Name}}</h3>
+          <p class="price">Rp {{.Product.Price}}</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="cart-right">
+          <div class="cart-qty">
+            <a href="/cart/decrease?id={{.Product.ID}}" class="qty-btn">−</a>
+            <span>{{.Qty}}</span>
+            <a href="/cart/increase?id={{.Product.ID}}" class="qty-btn">+</a>
+          </div>
+
+          <div class="cart-subtotal">Rp {{.Subtotal}}</div>
+        </div>
+      </div>
+
+      {{end}}
+    </div>
+
+    <div class="cart-footer">
+      <div class="total">
+        <span>Total</span>
+        <strong>Rp {{.Total}}</strong>
+      </div>
+
+      <form action="/checkout" method="POST">
+  <button type="submit" class="btn btn-danger">Checkout</button>
+</form>
+
+    {{else}}
+    <p>Cart is empty</p>
+    {{end}}
+  </div>
+</section>
+{{end}}
